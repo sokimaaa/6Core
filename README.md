@@ -1,5 +1,4 @@
 # 6Core
-
 The name "6Core" is a meaningful abbreviation that represents the six core parts of an ecommerce platform. 
 These six core parts include of management
 - cart
@@ -17,7 +16,6 @@ adds a numerical element to the abbreviation, which can help make it
 more memorable and distinctive. 
 
 ## Project Structure
-
 `1-documentation` is place for the platform documentation, architecture decision logs,
 flow diagram and et cetera. 
 
