@@ -97,4 +97,21 @@ Links for exploration:
 
 ## Testing Agreement
 
+## Common Architectural Agreement
+To ensure code quality we need to stay consistent in architectural styles we are using. 
+Let's focus on 
+1. Microservices Architecture.
+Microservices project structure looks like 
+a set with Monolith-like project designed specifically to get pros of microservices.
 
+2. Hexagonal Architecture.
+To see `example` of hexagonal just visit [hexagonal project example](https://github.com/sokimaaa/hexagonal-project-example)
+
+To learn more consider exploring:
+- [microservices architecture overall](https://camunda.com/glossary/microservices/)
+- [soa vs microservices](https://www.ibm.com/blog/soa-vs-microservices/)
+- [microservices architecture and patterns](h1ttps://medium.com/design-microservices-architecture-with-patterns/microservices-architecture-problems-and-solutions-with-pattern-and-principles-b673f342dc10)
+- [microservices architecture and patterns 2](https://medium.com/design-microservices-architecture-with-patterns/microservices-checklist-cover-all-aspects-of-microservices-architecture-e3243fe1a53f)
+- [microservices database architecture](https://www.baeldung.com/cs/microservices-db-design)
+- [microservices database per service](https://medium.com/design-microservices-architecture-with-patterns/the-database-per-service-pattern-9d511b882425)
+- [hexagonal architecture](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/)
