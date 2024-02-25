@@ -1,5 +1,4 @@
 # Working Agreement
-
 Before to start contributing familiarise yourself with working agreement below.
 
 ## Git Agreement
@@ -44,10 +43,58 @@ The same naming as for commit,
 but description should explain what has been done in this pull request.
 
 Links for exploration:
+- [git interactive learning](https://learngitbranching.js.org/?locale=uk)
 - [gitflow atlassian](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
-- [branching strategies]()
+- [branching strategies](https://www.youtube.com/watch?v=6BCOyrUobGc&ab_channel=VitaliShulha)
 
 ## Task Agreement
+High remark
+1. Tasks are going to be accessible on the Kanban-like board
+2. When started working on task, it should be moved to `In Progress`
+3. When task is match to DoR (Definition of Ready) criteria, it should be moved to `In Code Review`
+4. When task is match to DoD (Definition of Done) criteria, it should be moved to `Done`
+
+### TODO status
+When task is received from client, it should be well-described on the board and moved in `TODO status`.
+From time the task is appeared in `TODO status list`, it becomes ready to take in pool by developers.
+Once developer reassigns `TODO task` to himself, he should place expected time to be moved in `In Code Review` status.
+Evaluate expected time in numbers of days, e.g. `1`, `2`, `5`, `10` and so on.
+
+### In Progress status
+From the time the task is moved to `In Progress status`, counter of days is being started. 
+Move to `In Progress` only after evaluating expected time and fully understand what should be done in the issue.
+Expected that you should have only one ticket `In Progress` status, multitasking could be harmful at long distant.
+Expected that you have exactly one ticket `In Progress` status, in case have any I could come with questions. 
+
+### In Code Review status
+Move to the `In Code Review` task that match DoR (Definition of Ready) criteria.
+
+`DoR`:
+- The implementation covers `Acceptance Criteria` (or shortly `AC`)
+- The code has been successfully build, e.g. `mvn clean package`
+- The code has been manually tested and works as expected
+- The code has been covered with unit tests (if applicable)
+- The code passed all tests (unit test, integration test and so on)
+- Task ready for review, that means you fix all typos, redundant comments, styles issue, developer playground and so on.
+- You created Merge Request (or Pull Request) and assign mentor as reviewer.
+
+### Done status
+Move to the `Done` task that match DoD (Definition of Done) criteria.
+
+`DoD`:
+- The code was reviewed with `Approve` by mentor
+- The code was reviewed with `Approve` by at least one team member (non including mentor)
+- In case of `Request changes` should be discussed and fixed all points
+- Nothing was broken after changes
+- The code was merged by `Assignees` to `dev`
+
+Links for exploration:
+- [software development life cycle](https://www.clouddefense.ai/system-development-life-cycle/)
+- [kanban board](https://www.forbes.com/advisor/business/software/what-is-kanban-board/)
+- [kanban board 2](https://kanbantool.com/kanban-board)
+- [scrum board](https://www.forbes.com/advisor/business/what-is-a-scrum-board/)
+- [agile sprint](https://www.atlassian.com/agile/scrum/sprints)
 
 ## Testing Agreement
+
 
