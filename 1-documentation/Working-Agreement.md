@@ -24,8 +24,8 @@ When a feature is complete, it gets merged back into develop.
 | branch type      | pattern                       | example          | explanation                        |
 |------------------|-------------------------------|------------------|------------------------------------|
 | main branches    | `n\a`                         | `dev`            | fixed name                         |
-| feature branches | `^feat\/[A-Za-z0-9]+-[0-9]+$` | `feat/6CORE-000` | `feat/` prefix + ticket identifier |
-| hotfix branches  | `^fix\/[A-Za-z0-9]+-[0-9]+$`  | `fix/6CORE-000`  | `fix/` prefix + ticket identifier  |
+| feature branches | `^feat\/[A-Za-z0-9]+-[0-9]+$` | `feat/6CORE-[username]-000` | `feat/` prefix + ticket identifier |
+| hotfix branches  | `^fix\/[A-Za-z0-9]+-[0-9]+$`  | `fix/6CORE-[username]-000`  | `fix/` prefix + ticket identifier  |
 
 ### Commit naming
 All commits in a repository should follow next pattern: 
