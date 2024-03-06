@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.6core.platform</groupId>
-    <artifactId>order-ms</artifactId>
+    <artifactId>order</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <packaging>pom</packaging>
@@ -17,9 +17,9 @@
     </properties>
 
     <modules>
-        <module>boot</module>
-        <module>infra</module>
-        <module>app</module>
-        <module>domain</module>
+        <module>order-boot</module>
+        <module>order-infra</module>
+        <module>order-app</module>
+        <module>order-domain</module>
     </modules>
 </project>

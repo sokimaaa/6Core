@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.6core.platform</groupId>
-        <artifactId>order-ms</artifactId>
+        <artifactId>order</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>boot</artifactId>
+    <artifactId>order-boot</artifactId>
 
     <dependencyManagement>
         <dependencies>
@@ -31,7 +31,7 @@
 
         <dependency>
             <groupId>com.6core.platform</groupId>
-            <artifactId>infra</artifactId>
+            <artifactId>order-infra</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

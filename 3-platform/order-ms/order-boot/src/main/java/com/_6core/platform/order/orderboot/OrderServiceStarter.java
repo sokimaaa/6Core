@@ -1,11 +1,11 @@
-package com.core.platform.orderms.boot;
+package com._6core.platform.order.orderboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("com.6core.platform.order-ms")
+@ComponentScan("com.6core.platform.orderms")
 public class OrderServiceStarter {
 
     public static void main(String[] args) {
