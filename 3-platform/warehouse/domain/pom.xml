@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>domain</artifactId>
+    <artifactId>warehouse-domain</artifactId>
 
     <dependencies>
         <dependency>
