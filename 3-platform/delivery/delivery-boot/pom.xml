@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>boot</artifactId>
+    <artifactId>delivery-boot</artifactId>
 
     <dependencyManagement>
         <dependencies>
@@ -30,7 +30,7 @@
         </dependency>
         <dependency>
             <groupId>com.6core.platform</groupId>
-            <artifactId>infra</artifactId>
+            <artifactId>delivery-infra</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>

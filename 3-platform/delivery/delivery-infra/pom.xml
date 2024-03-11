@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>infra</artifactId>
+    <artifactId>delivery-infra</artifactId>
 
     <dependencyManagement>
         <dependencies>
@@ -31,7 +31,7 @@
 
         <dependency>
             <groupId>com.6core.platform</groupId>
-            <artifactId>app</artifactId>
+            <artifactId>delivery-app</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

@@ -10,12 +10,12 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>app</artifactId>
+    <artifactId>delivery-app</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.6core.platform</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>delivery-domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
