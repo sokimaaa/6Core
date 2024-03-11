@@ -7,7 +7,6 @@
     <groupId>com.6core.platform</groupId>
     <artifactId>warehouse</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-
     <packaging>pom</packaging>
 
     <properties>
@@ -17,10 +16,10 @@
     </properties>
 
     <modules>
-        <module>boot</module>
-        <module>infra</module>
-        <module>app</module>
-        <module>domain</module>
+        <module>warehouse-boot</module>
+        <module>warehouse-infra</module>
+        <module>warehouse-app</module>
+        <module>warehouse-domain</module>
     </modules>
 
 </project>
