@@ -13,8 +13,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.6core.lib</groupId>
-            <artifactId>java-domain-model</artifactId>
+            <groupId>com.6core.platform</groupId>
+            <artifactId>order-domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
