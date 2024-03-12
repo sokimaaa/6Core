@@ -1,18 +1,21 @@
 name: Sample workflow
 
-env:
-  PLATFORM_DIRECTORY: './3-platform'
-  PROJECT_ORDER: ${PLATFORM_DIRECTORY}/order
+#env:
+#  PLATFORM_DIRECTORY: './3-platform'
+#  PROJECT_ORDER: ${PLATFORM_DIRECTORY}/order
 
-on:
-  pull_request:
-    types: [opened]
+on: [push, pull_request]
 
 jobs:
   build-job:
     runs-on: ubuntu-latest
-    container:
-      image: "openjdk:17-jdk-slim"
     steps:
-      name: build and test
-      run: echo 'Hello world'
+      - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+          cache: maven
+      - name: Build with Maven
+        run: mvn clean package
