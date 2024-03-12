@@ -75,6 +75,7 @@ Move to the `In Code Review` task that match DoR (Definition of Ready) criteria.
 - The code has been manually tested and works as expected
 - The code has been covered with unit tests (if applicable)
 - The code passed all tests (unit test, integration test and so on)
+- The code passed ci pipeline
 - Task ready for review, that means you fix all typos, redundant comments, styles issue, developer playground and so on.
 - You created Merge Request (or Pull Request) and assign mentor as reviewer.
 
