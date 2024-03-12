@@ -17,9 +17,9 @@
     </properties>
 
     <modules>
-        <module>order-boot</module>
-        <module>order-infra</module>
-        <module>order-app</module>
-        <module>order-domain</module>
+        <module>boot</module>
+        <module>infra</module>
+        <module>app</module>
+        <module>domain</module>
     </modules>
 </project>

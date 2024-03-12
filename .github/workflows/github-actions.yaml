@@ -1,0 +1,18 @@
+name: Sample workflow
+
+env:
+  PLATFORM_DIRECTORY: './3-platform'
+  PROJECT_ORDER: ${PLATFORM_DIRECTORY}/order
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  build-job:
+    runs-on: ubuntu-latest
+    container:
+      image: "openjdk:17-jdk-slim"
+    steps:
+      name: build and test
+      run: echo 'Hello world'

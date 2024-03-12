@@ -16,10 +16,10 @@
     </properties>
 
     <modules>
-        <module>warehouse-boot</module>
-        <module>warehouse-infra</module>
-        <module>warehouse-app</module>
-        <module>warehouse-domain</module>
+        <module>boot</module>
+        <module>infra</module>
+        <module>app</module>
+        <module>domain</module>
     </modules>
 
 </project>
