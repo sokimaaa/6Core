@@ -24,3 +24,9 @@ and has any business logic. As example of library could be logging configuration
 
 `3-platform` is core of our project. Here is our business code that utilizes frameworks and libraries 
 to make our ideas real.
+
+## Build libraries
+
+```shell
+bash ./4-supplement/traverse-library.sh
+```
