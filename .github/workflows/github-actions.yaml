@@ -1,8 +1,11 @@
 name: Sample CI
 
+env:
+  ORDER_PROJECT: './3-platform/order'
+
 on:
   pull_request:
-    branches: [ "dev" ]
+    branches: [ 'dev' ]
 
 jobs:
   build:
@@ -20,12 +23,12 @@ jobs:
 
       - name: 'Build and Test: Order'
         run: mvn -B clean package
-        working-directory: "./3-platform/order"
+        working-directory: ${{ env.ORDER_PROJECT }}
 
       - name: 'Build and Test: Warehouse'
         run: mvn -B clean package
-        working-directory: "./3-platform/warehouse"
+        working-directory: './3-platform/warehouse'
 
       - name: 'Build and Test: Delivery'
         run: mvn -B clean package
-        working-directory: "./3-platform/delivery"
+        working-directory: './3-platform/delivery'
