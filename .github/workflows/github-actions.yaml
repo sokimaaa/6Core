@@ -1,6 +1,7 @@
 name: Sample CI
 
 env:
+  LIBRARY_TRAVERSING_SCRIPT: './4-supplement/traverse-library.bash'
   ORDER_PROJECT: './3-platform/order'
   WAREHOUSE_PROJECT: './3-platform/warehouse'
   DELIVERY_PROJECT: './3-platform/delivery'
@@ -22,6 +23,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
+
+      - name: 'Build and Test: Library'
+        run: './4-supplement/traverse-library.bash'
 
       - name: 'Build and Test: Warehouse'
         run: mvn -B clean package
