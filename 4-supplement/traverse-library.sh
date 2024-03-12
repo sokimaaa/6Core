@@ -10,7 +10,7 @@ for dir in "$directories"; do
 
   if [ -e "$dir/pom.xml" ]; then
     echo "Building the library..."
-    cd "$dir" && mvn clean install && cd ..
+    cd "$dir" && mvn -B clean install && cd ..
   else
     echo "Building of current library is skipped due missing pom.xml."
   fi
