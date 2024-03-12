@@ -15,10 +15,10 @@
     </properties>
 
     <modules>
-        <module>delivery-boot</module>
-        <module>delivery-app</module>
-        <module>delivery-domain</module>
-        <module>delivery-infra</module>
+        <module>boot</module>
+        <module>app</module>
+        <module>domain</module>
+        <module>infra</module>
     </modules>
 
 </project>
