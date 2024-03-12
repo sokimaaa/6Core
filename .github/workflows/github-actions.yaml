@@ -27,7 +27,7 @@ jobs:
       - name: 'Build and Test: Library'
         run: |
           chmod -x ./4-supplement/traverse-library.sh
-          ./4-supplement/traverse-library.sh
+          bash ./4-supplement/traverse-library.sh
 
       - name: 'Build and Test: Warehouse'
         run: mvn -B clean package
