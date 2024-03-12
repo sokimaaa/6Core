@@ -8,7 +8,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
 
     - name: Set up JDK 17
       uses: actions/setup-java@v3
@@ -17,6 +18,14 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Build with Maven
+    - name: 'Build and Test: Order'
       run: mvn -B clean package
       working-directory: "./3-platform/order"
+
+    - name: 'Build and Test: Warehouse'
+      run: mvn -B clean package
+      working-directory: "./3-platform/warehouse"
+
+    - name: 'Build and Test: Delivery'
+      run: mvn -B clean package
+      working-directory: "./3-platform/delivery"
