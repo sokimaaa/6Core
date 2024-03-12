@@ -1,4 +1,4 @@
-name: Sample CI
+name: 6Core CI
 
 env:
   LIBRARY_TRAVERSING_SCRIPT: './4-supplement/traverse-library.sh'
