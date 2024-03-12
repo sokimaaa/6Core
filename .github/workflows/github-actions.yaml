@@ -2,6 +2,8 @@ name: Sample CI
 
 env:
   ORDER_PROJECT: './3-platform/order'
+  WAREHOUSE_PROJECT: './3-platform/warehouse'
+  DELIVERY_PROJECT: './3-platform/delivery'
 
 on:
   pull_request:
@@ -21,14 +23,14 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: 'Build and Test: Order'
-        run: mvn -B clean package
-        working-directory: ${{ env.ORDER_PROJECT }}
-
       - name: 'Build and Test: Warehouse'
         run: mvn -B clean package
-        working-directory: './3-platform/warehouse'
+        working-directory: ${{ env.WAREHOUSE_PROJECT }}
 
       - name: 'Build and Test: Delivery'
         run: mvn -B clean package
-        working-directory: './3-platform/delivery'
+        working-directory: ${{ env.DELIVERY_PROJECT }}
+
+      - name: 'Build and Test: Order'
+        run: mvn -B clean package
+        working-directory: ${{ env.ORDER_PROJECT }}
