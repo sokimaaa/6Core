@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Event as E
+participant "Warehouse Service" as WS
+database Warehouse as W
+
+autonumber
+
+E -> WS: ReleaseHoldEvent
+activate WS
+
+WS -> W: find product
+WS <- W: product
+WS -> WS: check hold status of product
+WS -> WS: revert available product quantity
+WS -> W: update inventory
+WS <- W: update inventory ack
+
+deactivate WS
+
+@enduml

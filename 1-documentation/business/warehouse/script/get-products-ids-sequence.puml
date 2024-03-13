@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor "Internal Service" as IS
+participant "Warehouse Service" as WS
+database Warehouse as W
+
+IS -> WS: GetProductsRequest
+
+WS -> WS: transform request
+WS -> W: get products
+W -> WS: products
+WS -> WS: transform to response
+IS <- WS: GetProductsResponse
+
+@enduml
