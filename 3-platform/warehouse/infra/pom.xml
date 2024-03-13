@@ -15,7 +15,7 @@
 
         <dependency>
             <groupId>com.6core.platform</groupId>
-            <artifactId>warehouse-app</artifactId>
+            <artifactId>app</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

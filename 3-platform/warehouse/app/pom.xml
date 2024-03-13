@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.6core.platform</groupId>
-            <artifactId>warehouse-domain</artifactId>
+            <artifactId>domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

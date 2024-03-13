@@ -39,7 +39,7 @@
 
         <dependency>
             <groupId>com.6core.platform</groupId>
-            <artifactId>warehouse-infra</artifactId>
+            <artifactId>infra</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
