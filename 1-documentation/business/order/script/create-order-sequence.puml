@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor "Shopping Cart Service" as SCS
+participant "Order Service" as OS
+participant "Warehouse Service" as WS
+participant "Payment Service" as PS
+participant "Delivery Service" as DS
+database "Order" as O
+
+SCS -> OS: CreateOrderRequest
+
+OS -> OS: check order duplication
+
+OS -> WS: check products availability
+OS <- WS: product status
+
+OS -> WS: put product on hold
+OS -> OS: compose order
+OS -> O: persist order
+
+OS -> PS: initiate payment for order
+OS <- PS: payment status
+
+OS -> OS: check order correctness
+
+OS -> DS: send notification
+
+OS -> OS: compose CreateOrderResponse
+
+SCS <- OS: CreateOrderResponse
+
+@enduml
