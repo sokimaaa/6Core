@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor "Frontend" as F
+participant "Warehouse Service" as WS
+database Warehouse as W
+
+F -> WS: ProductSearchRequest
+
+WS -> WS: get filters criteria
+WS -> WS: transform filters criteria into database query
+WS -> W: get product by filters
+W -> WS: product
+WS -> WS: transform products
+F <- WS: ProductSearchResponse
+
+@enduml

@@ -1,0 +1,42 @@
+name: 6Core CI
+
+env:
+  LIBRARY_TRAVERSING_SCRIPT: './4-supplement/traverse-library.sh'
+  ORDER_PROJECT: './3-platform/order'
+  WAREHOUSE_PROJECT: './3-platform/warehouse'
+  DELIVERY_PROJECT: './3-platform/delivery'
+
+on:
+  pull_request:
+    branches: [ 'dev' ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: 'Build and Test: Library'
+        run: |
+          chmod -x ${{ env.LIBRARY_TRAVERSING_SCRIPT }}
+          bash ${{ env.LIBRARY_TRAVERSING_SCRIPT }}
+
+      - name: 'Build and Test: Warehouse'
+        run: mvn -B clean package
+        working-directory: ${{ env.WAREHOUSE_PROJECT }}
+
+      - name: 'Build and Test: Delivery'
+        run: mvn -B clean package
+        working-directory: ${{ env.DELIVERY_PROJECT }}
+
+      - name: 'Build and Test: Order'
+        run: mvn -B clean package
+        working-directory: ${{ env.ORDER_PROJECT }}

@@ -75,6 +75,7 @@ Move to the `In Code Review` task that match DoR (Definition of Ready) criteria.
 - The code has been manually tested and works as expected
 - The code has been covered with unit tests (if applicable)
 - The code passed all tests (unit test, integration test and so on)
+- The code passed ci pipeline
 - Task ready for review, that means you fix all typos, redundant comments, styles issue, developer playground and so on.
 - You created Merge Request (or Pull Request) and assign mentor as reviewer.
 
@@ -96,6 +97,47 @@ Links for exploration:
 - [agile sprint](https://www.atlassian.com/agile/scrum/sprints)
 
 ## Testing Agreement
+There are a lot of test' types that could improve quality of our code base. 
+Tests are divided in such groups: `Functional`, 
+`Non-functional` (performance, security, configuration, accessibility) 
+and `Change-related` (confirmation, smoke, sanity, regression).
+Mainly software developers are responsible to write functional and a bit of non-functional tests.
+But, in most cases developers should use all types of tests to have 360 degree overview of the system.
+
+In scope of our project we will focus on the `unit`, `integration` and `e2e` tests.
+
+`UNITARY TESTS`:
+- At class level
+- Majority of the tests
+- Need to cover all the possible cases in the scope of tge responsibility of the class
+
+`INTEGRATION TESTS`:
+- Tests where the full Spring context is validated
+- Test the communication among different Spring services/components inside microservice
+- Here could test databases records or events if we dim so
+- Entire business flow testing in scope of single microservice with mocked others
+
+`END-TO-END (E2E) TESTS`:
+- Tests where whole functional flows are tested normally including multiple microservices
+- Do not test here databases record or events data, make validation through APIs
+- Not all tasks will include e2e tests
+
+`Test methods naming agreement`:
+Pattern for methods is `MethodName_StateUnderTest_ExpectedBehavior`.
+MethodName is a method of the class that under the test.
+StateUnderTest means the state of input object\tested class, for example `partialShoppingCartClean`, `fullShoppingCartClean`.
+ExpectedBehavior is point of expected `return` of the method, for example `True` in case of boolean, `NullPointerException`, `validResponse` and so on.
+
+There are is a bunch of examples
+1. `transform_fullClean_validCleanerResponse`
+2. `transform_failedClean_invalidCleanerResponse`
+3. `transform_mappingRepeatingProductItems_validEnrichementResponse`
+
+Links for exploration:
+- [levels of testing](https://medium.com/aeturnuminc/software-test-levels-fb1c2e3a6700)
+- [practical test pyramid](https://martinfowler.com/articles/practical-test-pyramid.html)
+- [microservice testing strategies](https://martinfowler.com/articles/microservice-testing/#definition)
+- [unit test naming conventions types](https://medium.com/@stefanovskyi/unit-test-naming-conventions-dd9208eadbea)
 
 ## Common Architectural Agreement
 To ensure code quality we need to stay consistent in architectural styles we are using. 
@@ -110,7 +152,7 @@ To see `example` of hexagonal just visit [hexagonal project example](https://git
 To learn more consider exploring:
 - [microservices architecture overall](https://camunda.com/glossary/microservices/)
 - [soa vs microservices](https://www.ibm.com/blog/soa-vs-microservices/)
-- [microservices architecture and patterns](h1ttps://medium.com/design-microservices-architecture-with-patterns/microservices-architecture-problems-and-solutions-with-pattern-and-principles-b673f342dc10)
+- [microservices architecture and patterns](https://medium.com/design-microservices-architecture-with-patterns/microservices-architecture-problems-and-solutions-with-pattern-and-principles-b673f342dc10)
 - [microservices architecture and patterns 2](https://medium.com/design-microservices-architecture-with-patterns/microservices-checklist-cover-all-aspects-of-microservices-architecture-e3243fe1a53f)
 - [microservices database architecture](https://www.baeldung.com/cs/microservices-db-design)
 - [microservices database per service](https://medium.com/design-microservices-architecture-with-patterns/the-database-per-service-pattern-9d511b882425)

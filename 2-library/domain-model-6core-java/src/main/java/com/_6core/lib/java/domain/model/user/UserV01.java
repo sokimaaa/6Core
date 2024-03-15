@@ -1,4 +1,7 @@
 package com._6core.lib.java.domain.model.user;
 
-public interface Profile {
+/**
+ * TBD
+ */
+public interface UserV01 {
 }
