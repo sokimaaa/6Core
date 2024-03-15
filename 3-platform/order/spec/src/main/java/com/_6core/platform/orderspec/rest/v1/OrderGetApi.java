@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import reactor.core.publisher.Flux;
 
-@Tag(name = "Order Specification", description = "REST reactive specification for interaction with Order service")
-public interface OrderApi {
+@Tag(name = "Order Receive Specification", description = "REST reactive specification for interaction with Order service")
+public interface OrderGetApi {
 
     /**
      * Searching orders history by single user GET /orders
