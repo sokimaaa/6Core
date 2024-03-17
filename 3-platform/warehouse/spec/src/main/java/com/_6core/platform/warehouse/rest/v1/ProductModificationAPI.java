@@ -35,7 +35,7 @@ public interface ProductModificationAPI {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @PatchMapping("/products/{productId}/description")
-    default Mono<ResponseEntity<ResponseProductDescription>> updateProduct(Long productId,
+    default Mono<ResponseEntity<ResponseProductDescription>> updateProductDescription(Long productId,
                                                                            RequestProductDescription request) {
 
         ResponseProductDescription response
@@ -55,7 +55,7 @@ public interface ProductModificationAPI {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @PatchMapping("/products/{productId}/name")
-    default Mono<ResponseEntity<ResponseProductName>> updateProduct(Long productId,
+    default Mono<ResponseEntity<ResponseProductName>> updateProductName(Long productId,
                                                                     RequestProductName request) {
         ResponseProductName response
                 = new ResponseProductName(-1L, "updated");
@@ -75,7 +75,7 @@ public interface ProductModificationAPI {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @PatchMapping("/products/{productId}/price")
-    default Mono<ResponseEntity<ResponseProductPrice>> updateProduct(Long productId,
+    default Mono<ResponseEntity<ResponseProductPrice>> updateProductPrice(Long productId,
                                                                      RequestProductPrice request) {
         ResponseProductPrice response
                 = new ResponseProductPrice(-1L, new BigDecimal("123.45"));
