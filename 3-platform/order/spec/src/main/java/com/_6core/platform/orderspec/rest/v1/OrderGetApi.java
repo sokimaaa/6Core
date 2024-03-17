@@ -1,5 +1,6 @@
 package com._6core.platform.orderspec.rest.v1;
 
+import com._6core.platform.orderspec.rest.v1.dto.ItemResponse;
 import com._6core.platform.orderspec.rest.v1.dto.OrderResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -8,6 +9,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import java.math.BigInteger;
+import java.util.Set;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,9 +33,12 @@ public interface OrderGetApi {
             @ApiResponse(responseCode = "401", description = "Authorization information is missing or invalid"),
             @ApiResponse(responseCode = "500", description = "Unexpected error") })
     default Flux<ResponseEntity<OrderResponse>> getOrdersHistory() {
-        return Flux.empty();
+        BigInteger mockPrice = BigInteger.valueOf(-1L);
+        ItemResponse mockItem = new ItemResponse("-1", "-1", "-1", -1, mockPrice);
+        OrderResponse mockResponse = new OrderResponse("-1", "-1", mockPrice, Set.of(mockItem), "-1");
+        return Flux.just(ResponseEntity.ok().body(mockResponse));
     }
-
+    
     /**
      * Exploring exact order GET /orders/{orderId}
      * 
@@ -51,6 +57,9 @@ public interface OrderGetApi {
             @ApiResponse(responseCode = "500", description = "Unexpected error") })
     default Flux<ResponseEntity<OrderResponse>> getOrder(
             @Parameter(description = "ID of the order", required = true) @PathVariable Long orderId) {
-        return Flux.empty();
+        BigInteger mockPrice = BigInteger.valueOf(-1L);
+        ItemResponse mockItem = new ItemResponse("-1", "-1", "-1", -1, mockPrice);
+        OrderResponse mockResponse = new OrderResponse("-1", "-1", mockPrice, Set.of(mockItem), "-1");
+        return Flux.just(ResponseEntity.ok().body(mockResponse));
     }
 }
