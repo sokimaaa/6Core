@@ -1,1 +1,1 @@
-# Warehouse Managment Service
+# Warehouse Management Service
