@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor "Order Service" as OS
+participant "Warehouse Service" as WS
+database Warehouse as W
+
+autonumber
+
+OS -> WS: PutOnHoldRequest
+activate WS
+
+WS -> W: find product
+WS <- W: product
+
+WS -> WS: check product quantity
+
+WS -> WS: put on hold desired quantity
+
+WS -> WS: update available quantity of products
+
+WS -> W: update inventory
+
+WS <- W: update inventory ack
+
+WS -> WS: set auto hold releasing
+
+OS <- WS: PutOnHoldResponse
+deactivate WS
+
+@enduml
