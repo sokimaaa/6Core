@@ -10,7 +10,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>boot</artifactId>
+    <artifactId>warehouse-boot</artifactId>
 
 
     <dependencyManagement>
@@ -29,7 +29,7 @@
 
         <dependency>
             <groupId>com.6core.platform</groupId>
-            <artifactId>infra</artifactId>
+            <artifactId>warehouse-infra</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
