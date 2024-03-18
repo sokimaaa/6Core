@@ -22,7 +22,6 @@ public interface OrderGetApi {
     /**
      * Searching orders history by single user GET /orders
      * 
-     * @param acceptHeader - (while request should use application version)
      * @return OK (status code 200)
      */
     @GetMapping(value = "/orders", produces = "application/json")
@@ -38,12 +37,11 @@ public interface OrderGetApi {
         OrderResponse mockResponse = new OrderResponse("-1", "-1", mockPrice, Set.of(mockItem), "-1");
         return Flux.just(ResponseEntity.ok().body(mockResponse));
     }
-    
+
     /**
-     * Exploring exact order GET /orders/{orderId}
+     * Exploring exact order GET /orders/{orderId}/items
      * 
-     * @param orderId      - (required)
-     * @param acceptHeader - (while request should use application version)
+     * @param orderId - (required)
      * @return OK (status code 200)
      */
     @GetMapping(value = "/orders/{orderId}/items", produces = "application/json")
