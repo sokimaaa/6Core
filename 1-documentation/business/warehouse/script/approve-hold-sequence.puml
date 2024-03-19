@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor "Payment Service" as PS
+participant "Warehouse Service" as WS
+database Warehouse as W
+queue Notification as N
+
+autonumber
+
+PS -> WS: ApproveHoldRequest
+activate WS
+
+WS -> W: find product
+WS <- W: product
+
+WS -> WS: check product hold
+WS -> WS: unhold the product
+WS -> WS: update inventory product quantity
+WS -> W: update inventory
+WS <- W: update inventory ack
+WS --> N: ApproveHoldEvent
+
+PS <- WS: ApproveHoldResponse
+deactivate WS
+
+@enduml

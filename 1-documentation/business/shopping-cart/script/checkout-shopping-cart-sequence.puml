@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Frontend as F
+participant "Shopping Cart Service" as SCS
+participant "Order Service" as OS
+database "Shopping Cart" as SC
+
+F -> SCS: CheckoutShoppingCartRequest
+
+SCS -> SC: get user shopping cart
+SCS <- SC: shopping cart
+
+SCS -> SCS: validate shopping cart
+SCS -> SCS: compose CreateOrderRequest
+
+SCS -> OS: CreateOrderRequest
+SCS <- OS: CreateOrderResponse
+
+SCS -> SC: clean cart
+
+F <- SCS: CheckoutShoppingCartResponse
+
+@enduml
