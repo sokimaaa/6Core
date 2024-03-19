@@ -1,7 +1,7 @@
 package com._6core.platform.warehousespec.rest.v1;
 
-import com._6core.platform.warehousespec.rest.v1.dto.WarehouseRequest;
-import com._6core.platform.warehousespec.rest.v1.dto.WarehouseResponse;
+import com._6core.platform.warehousespec.rest.v1.dto.warehouse.WarehouseRequest;
+import com._6core.platform.warehousespec.rest.v1.dto.warehouse.WarehouseResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
