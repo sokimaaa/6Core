@@ -1,4 +1,4 @@
-package com._6core.platform.warehousespec;
+package com._6core.platform.warehousespec.rest.v1;
 
 import com._6core.platform.warehousespec.rest.v1.dto.product.ProductDescriptionRequest;
 import com._6core.platform.warehousespec.rest.v1.dto.product.ProductNameRequest;
