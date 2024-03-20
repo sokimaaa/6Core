@@ -1,13 +1,12 @@
 package com._6core.platform.warehouse.rest.v1;
 
-import com._6core.platform.warehouse.rest.v1.inventory.Inventory;
+import com._6core.platform.warehouse.rest.v1.inventory.InventoryResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,20 +26,16 @@ public interface InventoryGetApi {
     @Operation(summary = "Get inventory by id", description = "Get inventory by id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = Inventory.class))}),
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = InventoryResponse.class))}),
             @ApiResponse(responseCode = "401", description = "Authentication error"),
             @ApiResponse(responseCode = "500", description = "Internal server error")})
-    default Flux<ResponseEntity<Inventory>> getInventoryById(@PathVariable String id) {
-        Inventory mockInventory = new Inventory(
+    default Flux<ResponseEntity<InventoryResponse>> getInventoryById(@PathVariable String id) {
+        InventoryResponse mockInventory = new InventoryResponse(
                 "2_7",
                 "2",
-                "7",
-                10,
-                3
+                1
         );
-        return Flux.just(ResponseEntity
-                .status(HttpStatusCode.valueOf(200))
-                .body(mockInventory));
+        return Flux.just(ResponseEntity.ok(mockInventory));
     }
 
 }
