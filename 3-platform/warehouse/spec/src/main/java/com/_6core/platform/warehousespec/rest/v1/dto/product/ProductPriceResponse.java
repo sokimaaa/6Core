@@ -1,4 +1,4 @@
-package com._6core.platform.warehouse.rest.v1.dto.product;
+package com._6core.platform.warehousespec.rest.v1.dto.product;
 
 import java.math.BigDecimal;
 

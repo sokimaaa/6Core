@@ -1,11 +1,11 @@
-package com._6core.platform.warehouse.rest.v1;
+package com._6core.platform.warehousespec;
 
-import com._6core.platform.warehouse.rest.v1.dto.product.ProductDescriptionRequest;
-import com._6core.platform.warehouse.rest.v1.dto.product.ProductNameRequest;
-import com._6core.platform.warehouse.rest.v1.dto.product.ProductPriceRequest;
-import com._6core.platform.warehouse.rest.v1.dto.product.ProductDescriptionResponse;
-import com._6core.platform.warehouse.rest.v1.dto.product.ProductNameResponse;
-import com._6core.platform.warehouse.rest.v1.dto.product.ProductPriceResponse;
+import com._6core.platform.warehousespec.rest.v1.dto.product.ProductDescriptionRequest;
+import com._6core.platform.warehousespec.rest.v1.dto.product.ProductNameRequest;
+import com._6core.platform.warehousespec.rest.v1.dto.product.ProductPriceRequest;
+import com._6core.platform.warehousespec.rest.v1.dto.product.ProductDescriptionResponse;
+import com._6core.platform.warehousespec.rest.v1.dto.product.ProductNameResponse;
+import com._6core.platform.warehousespec.rest.v1.dto.product.ProductPriceResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
