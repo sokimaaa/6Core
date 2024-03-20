@@ -35,11 +35,11 @@ public interface ProductModificationAPI {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @PatchMapping("/products/{productId}/description")
-    default Mono<ResponseEntity<ProductDescriptionResponse>> updateProductDescription(Long productId,
+    default Mono<ResponseEntity<ProductDescriptionResponse>> updateProductDescription(String productId,
                                                                                       ProductDescriptionRequest request) {
 
         ProductDescriptionResponse response
-                = new ProductDescriptionResponse(-1L, "updated");
+                = new ProductDescriptionResponse("-1", "updated");
         return Mono.just(ResponseEntity.ok(response));
     }
 
@@ -55,10 +55,10 @@ public interface ProductModificationAPI {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @PatchMapping("/products/{productId}/name")
-    default Mono<ResponseEntity<ProductNameResponse>> updateProductName(Long productId,
+    default Mono<ResponseEntity<ProductNameResponse>> updateProductName(String productId,
                                                                         ProductNameRequest request) {
         ProductNameResponse response
-                = new ProductNameResponse(-1L, "updated");
+                = new ProductNameResponse("-1", "updated");
         return Mono.just(ResponseEntity.ok(response));
     }
 
@@ -75,10 +75,10 @@ public interface ProductModificationAPI {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @PatchMapping("/products/{productId}/price")
-    default Mono<ResponseEntity<ProductPriceResponse>> updateProductPrice(Long productId,
+    default Mono<ResponseEntity<ProductPriceResponse>> updateProductPrice(String productId,
                                                                           ProductPriceRequest request) {
         ProductPriceResponse response
-                = new ProductPriceResponse(-1L, new BigDecimal("123.45"));
+                = new ProductPriceResponse("-1", new BigDecimal("123.45"));
         return Mono.just(ResponseEntity.ok(response));
     }
 }
