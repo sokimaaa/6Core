@@ -1,6 +1,5 @@
 package com._6core.platform.orderspec.rest.v1;
 
-import com._6core.platform.orderspec.rest.v1.dto.ItemResponse;
 import com._6core.platform.orderspec.rest.v1.dto.OrderResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -33,8 +32,7 @@ public interface OrderGetApi {
             @ApiResponse(responseCode = "500", description = "Unexpected error") })
     default Flux<ResponseEntity<OrderResponse>> getOrdersHistory() {
         BigInteger mockPrice = BigInteger.valueOf(-1L);
-        ItemResponse mockItem = new ItemResponse("-1", "-1", "-1", -1, mockPrice);
-        OrderResponse mockResponse = new OrderResponse("-1", "-1", mockPrice, Set.of(mockItem), "-1");
+        OrderResponse mockResponse = new OrderResponse("-1", "-1", mockPrice, Set.of("-1"), "-1");
         return Flux.just(ResponseEntity.ok().body(mockResponse));
     }
 
@@ -56,8 +54,7 @@ public interface OrderGetApi {
     default Flux<ResponseEntity<OrderResponse>> getOrder(
             @Parameter(description = "ID of the order", required = true) @PathVariable Long orderId) {
         BigInteger mockPrice = BigInteger.valueOf(-1L);
-        ItemResponse mockItem = new ItemResponse("-1", "-1", "-1", -1, mockPrice);
-        OrderResponse mockResponse = new OrderResponse("-1", "-1", mockPrice, Set.of(mockItem), "-1");
+        OrderResponse mockResponse = new OrderResponse("-1", "-1", mockPrice, Set.of("-1"), "-1");
         return Flux.just(ResponseEntity.ok().body(mockResponse));
     }
 }
