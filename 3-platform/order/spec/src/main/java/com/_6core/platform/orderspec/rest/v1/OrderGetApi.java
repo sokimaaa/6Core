@@ -47,7 +47,7 @@ public interface OrderGetApi {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK", content = {
                     @Content(mediaType = "application/json", schema = @Schema(implementation = OrderResponse.class)) }),
-            @ApiResponse(responseCode = "400", description = "Bad request. Order ID must be an long and larger than 0"),
+            @ApiResponse(responseCode = "400", description = "Bad request. Requested parameter doesn't exist"),
             @ApiResponse(responseCode = "401", description = "Authorization information is missing or invalid"),
             @ApiResponse(responseCode = "404", description = "Order not found"),
             @ApiResponse(responseCode = "500", description = "Unexpected error") })
