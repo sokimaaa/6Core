@@ -22,7 +22,7 @@ import reactor.core.publisher.Mono;
  */
 
 @Tag(name = "Inventory supplying",
-        description = "REST specification for supplying ")
+        description = "REST specification for supplying")
 public interface InventorySupplyApi {
 
     /**
@@ -49,7 +49,6 @@ public interface InventorySupplyApi {
             @ApiResponse(responseCode = "404", description = "inventory not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-
     @PatchMapping("inventory/{inventoryId}/supply")
    default Mono<ResponseEntity<InventorySupplyResponse>> supplyInventory(
             @Parameter(description  = "inventory ID") @PathVariable String inventoryId,

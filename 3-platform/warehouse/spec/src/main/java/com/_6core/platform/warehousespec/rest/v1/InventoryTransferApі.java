@@ -3,6 +3,7 @@ package com._6core.platform.warehousespec.rest.v1;
 import com._6core.platform.warehousespec.rest.v1.dto.inventory.InventoryTransferRequest;
 import com._6core.platform.warehousespec.rest.v1.dto.inventory.InventoryTransferResponse;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -19,8 +20,8 @@ import reactor.core.publisher.Mono;
  */
 
 @Tag(name = "Inventory allocate",
-        description = "REST specification for allocation ")
-public interface InventoryTransferAPI {
+        description = "REST specification for allocation")
+public interface InventoryTransferApі {
 
     /**
      * Transfers inventory within the warehouse system.
@@ -48,7 +49,7 @@ public interface InventoryTransferAPI {
     @PatchMapping("invetory/{inventoryId}/transfer")
     default Mono<ResponseEntity<InventoryTransferResponse>> transferInventory (
             @RequestBody InventoryTransferRequest request,
-            @PathVariable String inventoryId) {
+            @Parameter(description = "inventory ID") @PathVariable String inventoryId) {
 
         InventoryTransferResponse response
                 = new InventoryTransferResponse("-1",
