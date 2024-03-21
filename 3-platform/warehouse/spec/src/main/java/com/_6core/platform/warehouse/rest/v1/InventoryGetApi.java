@@ -28,6 +28,7 @@ public interface InventoryGetApi {
             @ApiResponse(responseCode = "200", description = "OK", content = {
                     @Content(mediaType = "application/json", schema = @Schema(implementation = InventoryResponse.class))}),
             @ApiResponse(responseCode = "401", description = "Authentication error"),
+            @ApiResponse(responseCode = "404", description = "Entity not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")})
     default Flux<ResponseEntity<InventoryResponse>> getInventoryById(@PathVariable String id) {
         InventoryResponse mockInventory = new InventoryResponse(
