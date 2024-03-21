@@ -36,12 +36,9 @@ public interface WarehouseCreationApi {
             WarehouseRequest request
     ) {
         WarehouseResponse mockProduct = new WarehouseResponse(
-                1002L,
-                "Mock warehouse name",
-                "Mock warehouse description",
-                1L,
-                "actual"
-                );
+                "1002L",
+                "Warehouse address"
+        );
         return Flux.just(ResponseEntity
                 .status(HttpStatusCode.valueOf(201))
                 .body(mockProduct));
