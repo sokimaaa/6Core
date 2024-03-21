@@ -52,7 +52,7 @@ public interface OrderGetApi {
             @ApiResponse(responseCode = "404", description = "Order not found"),
             @ApiResponse(responseCode = "500", description = "Unexpected error") })
     default Flux<ResponseEntity<OrderResponse>> getOrder(
-            @Parameter(description = "ID of the order", required = true) @PathVariable Long orderId) {
+            @Parameter(description = "ID of the order", required = true) @PathVariable String orderId) {
         BigInteger mockPrice = BigInteger.valueOf(-1L);
         OrderResponse mockResponse = new OrderResponse("-1", "-1", mockPrice, Set.of("-1"), "-1");
         return Flux.just(ResponseEntity.ok().body(mockResponse));
