@@ -1,7 +1,7 @@
 package com._6core.platform.warehousespec.rest.v1;
 
+import com._6core.platform.warehousespec.rest.v1.dto.inventory.InventorySupplyRequest;
 import com._6core.platform.warehousespec.rest.v1.dto.inventory.InventorySupplyResponse;
-import com._6core.platform.warehousespec.rest.v1.dto.product.ProductSupplyRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import reactor.core.publisher.Mono;
-import java.util.List;
 
 /**
  * Interface for supplying new products to the inventory in the Warehouse Service.
@@ -34,7 +33,6 @@ public interface InventorySupplyApi {
      * contains details about the products to be supplied, including their IDs and quantities.
      *
      * @param inventoryId The ID of the inventory item to which the products will be supplied.
-     * @param products A list of {@link ProductSupplyRequest} objects containing details about
      *                 the products to be supplied.
      * @return A {@link Mono} that emits a {@link ResponseEntity} containing
      * the {@link InventorySupplyResponse} object.
@@ -55,12 +53,12 @@ public interface InventorySupplyApi {
     @PatchMapping("inventory/{inventoryId}/supply")
    default Mono<ResponseEntity<InventorySupplyResponse>> supplyInventory(
             @Parameter(description  = "inventory ID") @PathVariable String inventoryId,
-            @RequestBody List<ProductSupplyRequest> products) {
+            @RequestBody InventorySupplyRequest request) {
 
         InventorySupplyResponse response
                 = new InventorySupplyResponse("-1",
-                List.of(new ProductSupplyRequest("-1",
-                3)));
+                "-1",
+                3);
 
         return Mono.just(ResponseEntity.ok(response));
     }
