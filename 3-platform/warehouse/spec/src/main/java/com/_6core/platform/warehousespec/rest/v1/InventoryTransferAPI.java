@@ -23,7 +23,18 @@ import reactor.core.publisher.Mono;
 public interface InventoryTransferAPI {
 
     /**
-     * Transfer inventory in Warehouse.
+     * Transfers inventory within the warehouse system.
+     *
+     * This API endpoint allows you to move inventory items from one location to another within the warehouse.
+     *
+     * @param request The {@link InventoryTransferRequest} object containing details about the inventory transfer.
+     * @param inventoryId The ID of the inventory item to be transferred.
+     * @return A {@link Mono} that emits a {@link ResponseEntity}
+     * containing the {@link InventoryTransferResponse} object.
+     *         - The response status code will be:
+     *             - 200 (OK) - if the inventory transfer is successful.
+     *             - 404 (Not Found) - if the inventory item with the provided ID is not found.
+     *             - 500 (Internal Server Error) - if an unexpected error occurs during the transfer process.
      */
 
     @Operation(summary = "Transfer inventory", description = "Moving inventory in Warehouse")
