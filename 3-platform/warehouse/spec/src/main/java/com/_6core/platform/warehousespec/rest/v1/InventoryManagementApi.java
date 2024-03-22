@@ -26,7 +26,7 @@ public interface InventoryManagementApi {
     /**
      * Transfers inventory within the warehouse system.
      *
-     * This API endpoint allows you to move inventory items from one location to another within the warehouse.
+     * This API endpoint allows you to allocate a new space for the inventory in the warehouse.
      *
      *  - The response status code will be:
      *      - 200 (OK) - if the inventory transfer is successful.
@@ -34,7 +34,7 @@ public interface InventoryManagementApi {
      *      - 500 (Internal Server Error) - if an unexpected error occurs during the transfer process.
      */
 
-    @Operation(summary = "Transfer inventory", description = "Moving inventory in Warehouse")
+    @Operation(summary = "Allocate inventory", description = "Allocate a new space for the inventory in our warehouse")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK", content = {
                     @Content(mediaType = "application/json",
