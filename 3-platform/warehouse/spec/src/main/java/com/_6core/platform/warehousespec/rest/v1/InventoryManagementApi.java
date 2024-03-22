@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import reactor.core.publisher.Mono;
 
 /**
- * Interface for allocation inventory in the Warehouse Service.
+ * Interface for inventory management  in the Warehouse Service.
  */
 
 @Tag(name = "Inventory management",
@@ -24,12 +24,12 @@ import reactor.core.publisher.Mono;
 public interface InventoryManagementApi {
 
     /**
-     * Transfers inventory within the warehouse system.
-     *
      * This API endpoint allows you to allocate a new space for the inventory in the warehouse.
      *
      *  - The response status code will be:
      *      - 200 (OK) - if the inventory transfer is successful.
+     *      - 400 (Bad Request) - if there is a field validation error
+     *      - 401 (Unauthorized) - if there is an authentication error
      *      - 404 (Not Found) - if the inventory item with the provided ID is not found.
      *      - 500 (Internal Server Error) - if an unexpected error occurs during the transfer process.
      */
@@ -53,14 +53,16 @@ public interface InventoryManagementApi {
     }
 
     /**
-     * Supplies a list of products to the inventory identified by the given inventory ID.
+     * Supplies a product to the inventory identified by the given inventory ID.
      *
      * This operation allows you to add new products to an existing inventory item. The provided
      * `inventoryId` should correspond to an existing inventory item in the system. The `products` list
      * contains details about the products to be supplied, including their IDs and quantities.
      *
      *  - The response status code will be:
-     *      - 200 (OK) - if the inventory transfer is successful.
+     *      - 200 (OK) - if the inventory allocated is successful.
+     *      - 400 (Bad Request) - if there is a field validation error
+     *      - 401 (Unauthorized) - if there is an authentication error
      *      - 404 (Not Found) - if the inventory item with the provided ID is not found.
      *      - 500 (Internal Server Error) - if an unexpected error occurs during the transfer process.
      */
