@@ -9,8 +9,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
 import reactor.core.publisher.Flux;
 
 @Tag(name = "Getting inventory specification",
@@ -24,7 +22,6 @@ public interface InventoryGetApi {
      * @param inventoryId - required
      * @return OK (status code 200)
      */
-    @ResponseBody
     @GetMapping(value = "/warehouses/{warehouseId}/inventories/{inventoryId}", produces = "application/json")
     @Operation(summary = "Get inventory by warehouseId and inventoryId",
             description = "Get inventory by warehouseId and inventoryId")
@@ -35,8 +32,8 @@ public interface InventoryGetApi {
             @ApiResponse(responseCode = "404", description = "Entity not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")})
     default Flux<ResponseEntity<InventoryResponse>> getInventoryByWarehouseIdAndInventoryId(
-            @PathVariable String warehouseId,
-            @PathVariable String inventoryId) {
+            String warehouseId,
+            String inventoryId) {
         InventoryResponse mockInventory = new InventoryResponse(
                 "2_7",
                 "2",
