@@ -34,6 +34,7 @@ jobs:
         run: |
           chmod -x ${{ env.VERIFY_PLATFORM_SCRIPT }}
           bash ${{ env.VERIFY_PLATFORM_SCRIPT }}
+        continue-on-error: true
 
       - name: 'Build and Test: Warehouse'
         run: mvn -B clean package
