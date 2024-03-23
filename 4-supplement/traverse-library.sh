@@ -5,7 +5,7 @@ cd "2-library/"
 
 directories=$(find . -mindepth 1 -maxdepth 1 -type d)
 
-for dir in "$directories"; do
+for dir in $directories; do
   echo "Building the $dir"
 
   if [ -e "$dir/pom.xml" ]; then
