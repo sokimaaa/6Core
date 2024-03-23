@@ -77,7 +77,7 @@ public interface InventoryManagementApi {
             @ApiResponse(responseCode = "404", description = "Inventory not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @PatchMapping("/inventories/{inventoryId}/supply")
+    @PatchMapping("/inventories/{inventoryId}/products")
     default Mono<ResponseEntity<InventorySupplyResponse>> supplyInventory(
             String inventoryId,
             InventorySupplyRequest request) {
@@ -86,6 +86,5 @@ public interface InventoryManagementApi {
                 = new InventorySupplyResponse("-1","-1",3);
         return Mono.just(ResponseEntity.ok(response));
     }
-
 }
 
