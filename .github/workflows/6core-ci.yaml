@@ -31,10 +31,15 @@ jobs:
           bash ${{ env.LIBRARY_TRAVERSING_SCRIPT }}
 
       - name: 'Verify Platform'
+        id: verification
+        continue-on-error: true
         run: |
           chmod -x ${{ env.VERIFY_PLATFORM_SCRIPT }}
           bash ${{ env.VERIFY_PLATFORM_SCRIPT }}
-        continue-on-error: true
+          if ! ${{ steps.verification.outcome == 'success' }}; then
+            echo "::error::Failed to verify platform"
+            exit 1
+          fi
 
       - name: 'Build and Test: Warehouse'
         run: mvn -B clean package
