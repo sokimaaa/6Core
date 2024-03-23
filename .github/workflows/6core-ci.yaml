@@ -31,6 +31,7 @@ jobs:
           bash ${{ env.LIBRARY_TRAVERSING_SCRIPT }}
 
       - name: 'Verify Platform'
+        id: verification
         run: |
           chmod -x ${{ env.VERIFY_PLATFORM_SCRIPT }}
           bash ${{ env.VERIFY_PLATFORM_SCRIPT }}
