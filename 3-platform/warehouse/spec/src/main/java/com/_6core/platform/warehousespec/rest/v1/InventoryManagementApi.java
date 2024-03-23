@@ -44,8 +44,9 @@ public interface InventoryManagementApi {
             @ApiResponse(responseCode = "404", description = "inventory not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @PostMapping("/inventory/allocate")
+    @PostMapping("/inventories/{inventoryId}/allocates")
     default Mono<ResponseEntity<InventoryAllocateResponse>> inventoryAllocate (
+            String inventoryId,
             InventoryAllocateRequest request) {
         InventoryAllocateResponse response
                 = new InventoryAllocateResponse("-1Locate", "-1WH","-1Inv", 3);
@@ -76,7 +77,7 @@ public interface InventoryManagementApi {
             @ApiResponse(responseCode = "404", description = "Inventory not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @PatchMapping("/inventory/{inventoryId}/supply")
+    @PatchMapping("/inventories/{inventoryId}/supply")
     default Mono<ResponseEntity<InventorySupplyResponse>> supplyInventory(
             String inventoryId,
             InventorySupplyRequest request) {
