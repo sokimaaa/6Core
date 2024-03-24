@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import reactor.core.publisher.Mono;
 
@@ -44,9 +45,10 @@ public interface InventoryManagementApi {
             @ApiResponse(responseCode = "404", description = "inventory not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @PostMapping("/inventories/{inventoryId}/allocations")
+    @PostMapping("/warehouses/{warehouseId}/inventories/{inventoryId}")
     default Mono<ResponseEntity<InventoryAllocateResponse>> inventoryAllocate (
             String inventoryId,
+            String warehouseId,
             InventoryAllocateRequest request) {
         InventoryAllocateResponse response
                 = new InventoryAllocateResponse("-1Locate", "-1WH","-1Inv", 3);
@@ -77,9 +79,10 @@ public interface InventoryManagementApi {
             @ApiResponse(responseCode = "404", description = "Inventory not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @PatchMapping("/inventories/{inventoryId}/products")
+    @PatchMapping("/warehouses/{warehouseId}/inventories/{inventoryId}")
     default Mono<ResponseEntity<InventorySupplyResponse>> supplyInventory(
             String inventoryId,
+            String warehouseId,
             InventorySupplyRequest request) {
 
         InventorySupplyResponse response
