@@ -54,7 +54,10 @@ public interface InventoryManagementApi {
             @Parameter(name = "warehouseId", required = true) @PathVariable("warehouseId") String warehouseId,
             InventoryAllocateRequest request) {
         InventoryAllocateResponse response
-                = new InventoryAllocateResponse("-1Locate", "-1WH","-1Inv", 3);
+                = new InventoryAllocateResponse("-1Locate",
+                "-1WH",
+                "-1Inv",
+                3);
         return Mono.just(ResponseEntity.ok(response));
     }
 
