@@ -34,6 +34,7 @@ public interface InventoryManagementApi {
      * @param inventoryId - required
      * @param request - required
      * @return OK (status code 200)
+     *
      */
 
     @Operation(summary = "Allocate inventory", description = "Allocate a new space for the inventory in our warehouse")
