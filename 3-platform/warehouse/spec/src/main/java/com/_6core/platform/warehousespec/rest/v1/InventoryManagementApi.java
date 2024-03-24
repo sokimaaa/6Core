@@ -5,6 +5,7 @@ import com._6core.platform.warehousespec.rest.v1.dto.inventory.InventoryAllocate
 import com._6core.platform.warehousespec.rest.v1.dto.inventory.InventorySupplyRequest;
 import com._6core.platform.warehousespec.rest.v1.dto.inventory.InventorySupplyResponse;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -27,12 +28,12 @@ public interface InventoryManagementApi {
     /**
      * This API endpoint allows you to allocate a new space for the inventory in the warehouse.
      *
-     *  - The response status code will be:
-     *      - 200 (OK) - if the inventory transfer is successful.
-     *      - 400 (Bad Request) - if there is a field validation error
-     *      - 401 (Unauthorized) - if there is an authentication error
-     *      - 404 (Not Found) - if the inventory item with the provided ID is not found.
-     *      - 500 (Internal Server Error) - if an unexpected error occurs during the transfer process.
+     * POST /warehouses/{warehouseId}/inventories/{inventoryId}
+     *
+     * @param warehouseId - required
+     * @param inventoryId - required
+     * @param request - required
+     * @return OK (status code 200)
      */
 
     @Operation(summary = "Allocate inventory", description = "Allocate a new space for the inventory in our warehouse")
@@ -45,10 +46,12 @@ public interface InventoryManagementApi {
             @ApiResponse(responseCode = "404", description = "inventory not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @PostMapping("/warehouses/{warehouseId}/inventories/{inventoryId}")
+    @PostMapping(value =  "/warehouses/{warehouseId}/inventories/{inventoryId}",
+            produces = "application/json",
+            consumes = "application/json")
     default Mono<ResponseEntity<InventoryAllocateResponse>> inventoryAllocate (
-            String inventoryId,
-            String warehouseId,
+            @Parameter(name = "inventoryId", required = true) @PathVariable("inventoryId") String inventoryId,
+            @Parameter(name = "warehouseId", required = true) @PathVariable("warehouseId") String warehouseId,
             InventoryAllocateRequest request) {
         InventoryAllocateResponse response
                 = new InventoryAllocateResponse("-1Locate", "-1WH","-1Inv", 3);
@@ -58,16 +61,13 @@ public interface InventoryManagementApi {
     /**
      * Supplies a product to the inventory identified by the given inventory ID.
      *
-     * This operation allows you to add new products to an existing inventory item. The provided
-     * `inventoryId` should correspond to an existing inventory item in the system. The `products` list
-     * contains details about the products to be supplied, including their IDs and quantities.
+     * Patch /warehouses/{warehouseId}/inventories/{inventoryId}
      *
-     *  - The response status code will be:
-     *      - 200 (OK) - if the inventory allocated is successful.
-     *      - 400 (Bad Request) - if there is a field validation error
-     *      - 401 (Unauthorized) - if there is an authentication error
-     *      - 404 (Not Found) - if the inventory item with the provided ID is not found.
-     *      - 500 (Internal Server Error) - if an unexpected error occurs during the transfer process.
+     * @param warehouseId - required
+     * @param inventoryId - required
+     * @param request - required
+     * @return OK (status code 200)
+     *
      */
     @Operation(summary = "Supply products to inventory", description = "Supplying new products to inventory")
     @ApiResponses(value = {
@@ -79,10 +79,13 @@ public interface InventoryManagementApi {
             @ApiResponse(responseCode = "404", description = "Inventory not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @PatchMapping("/warehouses/{warehouseId}/inventories/{inventoryId}")
+    @PatchMapping(
+            value = "/warehouses/{warehouseId}/inventories/{inventoryId}",
+            produces = "application/json",
+            consumes = "application/json")
     default Mono<ResponseEntity<InventorySupplyResponse>> supplyInventory(
-            String inventoryId,
-            String warehouseId,
+            @Parameter(name = "inventoryId", required = true) @PathVariable("inventoryId") String inventoryId,
+            @Parameter(name = "warehouseId", required = true) @PathVariable("warehouseId") String warehouseId,
             InventorySupplyRequest request) {
 
         InventorySupplyResponse response
