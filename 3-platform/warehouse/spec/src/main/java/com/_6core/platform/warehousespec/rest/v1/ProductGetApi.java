@@ -1,5 +1,6 @@
 package com._6core.platform.warehousespec.rest.v1;
 
+import com._6core.platform.warehousespec.rest.v1.dto.product.ProductCartResponse;
 import com._6core.platform.warehousespec.rest.v1.dto.product.ProductDetailsResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -20,9 +21,7 @@ import reactor.core.publisher.Flux;
 @Tag(name = "Product Receive Specification", description = "REST reactive specification for getting products from warehouse service")
 public interface ProductGetApi {
     /*
-     * Acceptance Criteria - Defined the Request, Response objects - Defined the
-     * Interface for interacting with the Warehouse Service - Well-documented
-     * specification with JavaDoc and OpenApi - Design filtering feature
+     * - Design filtering feature
      */
 
     // referance:
@@ -38,16 +37,15 @@ public interface ProductGetApi {
     @Operation(summary = "Get products by filter creteria", description = "Get all products by specified filters")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = Object.class)) }),
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = ProductCartResponse.class)) }),
             @ApiResponse(responseCode = "400", description = "Bad request. Requested parameters doesn't exist"),
             @ApiResponse(responseCode = "401", description = "Authorization information is missing or invalid"),
             @ApiResponse(responseCode = "404", description = "Products not found"),
             @ApiResponse(responseCode = "500", description = "Unexpected error") })
-    default Flux<ResponseEntity<Object>> getProductsByCreteria(@RequestParam(required = false) Map<String, Set<String>> filterCreteria) {
-        // try test it
-        // return list of a products by creterias
-        // if nothing specifiead return all
-        return null;
+    default Flux<ResponseEntity<ProductCartResponse>> getProductsByCreteria(
+            @RequestParam(required = false) Map<String, Set<String>> filterCreteria) {
+        ProductCartResponse mockCartResponse = new ProductCartResponse("-1", "-1", "-1", BigInteger.valueOf(-1L), false);
+        return Flux.just(ResponseEntity.ok().body(mockCartResponse));
     }
 
     /**
