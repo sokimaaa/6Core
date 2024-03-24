@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.6core.lib</groupId>
-        <artifactId>6core-bom</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
-
-    <groupId>com.6core.platform</groupId>
-    <artifactId>delivery</artifactId>
+  <parent>
+    <groupId>com.6core.lib</groupId>
+    <artifactId>6core-bom</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+  </parent>
 
-    <modules>
-        <module>boot</module>
-        <module>app</module>
-        <module>domain</module>
-        <module>infra</module>
-    </modules>
+  <groupId>com.6core.platform</groupId>
+  <artifactId>delivery</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>boot</module>
+    <module>app</module>
+    <module>domain</module>
+    <module>infra</module>
+  </modules>
 
 </project>
