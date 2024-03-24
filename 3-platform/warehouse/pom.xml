@@ -27,4 +27,39 @@
         <module>spec</module>
     </modules>
 
+    <build>
+        <plugins>
+            <!-- Конфігурація плагіна для Spotless -->
+            <plugin>
+                <groupId>com.diffplug.spotless</groupId>
+                <artifactId>spotless-maven-plugin</artifactId>
+                <version>${spotless.check.plugin.version}</version>
+                <configuration>
+                    <java>
+                        <includes>
+                            <include>src/main/java/**/*.java</include>
+                            <include>src/test/java/**/*.java</include>
+                        </includes>
+                        <googleJavaFormat/>
+                        <formatAnnotations/>
+                    </java>
+                    <pom>
+                        <includes>
+                            <include>**/pom.xml</include>
+                        </includes>
+                        <sortPom/>
+                    </pom>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <!-- Інші конфігураційні елементи, якщо необхідно -->
+    </build>
+
 </project>
