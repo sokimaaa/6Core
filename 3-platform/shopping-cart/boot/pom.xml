@@ -16,8 +16,6 @@
       <artifactId>shopping-cart-infra</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
-
-
   </dependencies>
 
 </project>
