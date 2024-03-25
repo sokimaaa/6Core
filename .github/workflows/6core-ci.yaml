@@ -6,6 +6,7 @@ env:
   ORDER_PROJECT: './3-platform/order'
   WAREHOUSE_PROJECT: './3-platform/warehouse'
   DELIVERY_PROJECT: './3-platform/delivery'
+  SHOPPING_CART_PROJECT: './3-platform/shopping-cart'
 
 on:
   pull_request:
@@ -47,3 +48,7 @@ jobs:
       - name: 'Build and Test: Order'
         run: mvn -B clean package
         working-directory: ${{ env.ORDER_PROJECT }}
+
+      - name: 'Build and Test: Shopping Cart'
+        run: mvn -B clean package
+        working-directory: ${{ env.SHOPPING_CART_PROJECT }}
