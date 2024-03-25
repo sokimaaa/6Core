@@ -32,7 +32,7 @@ jobs:
           bash ${{ env.LIBRARY_TRAVERSING_SCRIPT }}
 
       - name: 'Verify Platform'
-        allow_failure: true
+        continue-on-error: true
         run: |
           chmod -x ${{ env.VERIFY_PLATFORM_SCRIPT }}
           bash ${{ env.VERIFY_PLATFORM_SCRIPT }}
