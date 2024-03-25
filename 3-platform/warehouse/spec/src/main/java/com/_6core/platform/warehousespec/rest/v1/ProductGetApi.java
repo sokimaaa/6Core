@@ -57,7 +57,7 @@ public interface ProductGetApi {
       @RequestParam(required = false) Map<String, Set<String>> filterCreteria) {
     ProductSearchResponseCard mockCartResponse =
         new ProductSearchResponseCard("-1", "-1", "-1", BigInteger.valueOf(-1L), false);
-    return Flux.just(ResponseEntity.ok().body(mockCartResponse));
+    return Flux.just(ResponseEntity.ok(mockCartResponse));
   }
 
   /**
@@ -94,6 +94,6 @@ public interface ProductGetApi {
           String productId) {
     ProductDetailsResponse mockResponse =
         new ProductDetailsResponse("-1", "-1", "-1", "-1", BigInteger.valueOf(-1L), "-1", false);
-    return Flux.just(ResponseEntity.ok().body(mockResponse));
+    return Flux.just(ResponseEntity.ok(mockResponse));
   }
 }
