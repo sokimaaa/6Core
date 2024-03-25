@@ -25,6 +25,8 @@ and has any business logic. As example of library could be logging configuration
 `3-platform` is core of our project. Here is our business code that utilizes frameworks and libraries 
 to make our ideas real.
 
+`4-supplement` is folder for storing third-party scripts for CI, local development, testing or any other useful scripts.
+
 ## Build libraries
 
 ```shell
