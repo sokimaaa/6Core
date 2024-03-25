@@ -2,7 +2,7 @@ package com._6core.platform.orderspec.rest.v1;
 
 import com._6core.platform.orderspec.rest.v1.dto.OrderDetailsResponse;
 import com._6core.platform.orderspec.rest.v1.dto.OrderItemResponse;
-import com._6core.platform.orderspec.rest.v1.dto.OrderResponse;
+import com._6core.platform.orderspec.rest.v1.dto.OrderShortResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -29,13 +29,13 @@ public interface OrderGetApi {
     @Operation(summary = "Get orders history", description = "Get all orders with all statuses by a single user")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = OrderResponse.class)) }),
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = OrderShortResponse.class)) }),
             @ApiResponse(responseCode = "401", description = "Authorization information is missing or invalid"),
             @ApiResponse(responseCode = "500", description = "Unexpected error") })
-    default Flux<ResponseEntity<OrderResponse>> getOrdersHistory() {
+    default Flux<ResponseEntity<OrderShortResponse>> getOrdersHistory() {
         BigInteger mockPrice = BigInteger.valueOf(-1L);
-        OrderResponse mockResponse = new OrderResponse("-1", "-1", mockPrice, "-1");
-        return Flux.just(ResponseEntity.ok().body(mockResponse));
+        OrderShortResponse mockResponse = new OrderShortResponse("-1", "-1", mockPrice, "-1");
+        return Flux.just(ResponseEntity.ok(mockResponse));
     }
 
     /**
@@ -58,6 +58,6 @@ public interface OrderGetApi {
         BigInteger mockPrice = BigInteger.valueOf(-1L);
         OrderItemResponse mockItem = new OrderItemResponse("-1", "-1", 0, mockPrice);
         OrderDetailsResponse mockResponse = new OrderDetailsResponse("-1", "-1", mockPrice, Set.of(mockItem), "-1");
-        return Flux.just(ResponseEntity.ok().body(mockResponse));
+        return Flux.just(ResponseEntity.ok(mockResponse));
     }
 }
