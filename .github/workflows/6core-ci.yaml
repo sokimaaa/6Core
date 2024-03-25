@@ -2,16 +2,18 @@ name: 6Core CI
 
 env:
   LIBRARY_TRAVERSING_SCRIPT: './4-supplement/traverse-library.sh'
+  VERIFY_PLATFORM_SCRIPT: './4-supplement/verify-platform.sh'
   ORDER_PROJECT: './3-platform/order'
   WAREHOUSE_PROJECT: './3-platform/warehouse'
   DELIVERY_PROJECT: './3-platform/delivery'
+  SHOPPING_CART_PROJECT: './3-platform/shopping-cart'
 
 on:
   pull_request:
     branches: [ 'dev' ]
 
 jobs:
-  build-and-test:
+  verify-build-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,6 +31,12 @@ jobs:
           chmod -x ${{ env.LIBRARY_TRAVERSING_SCRIPT }}
           bash ${{ env.LIBRARY_TRAVERSING_SCRIPT }}
 
+      - name: 'Verify Platform'
+        id: verification
+        run: |
+          chmod -x ${{ env.VERIFY_PLATFORM_SCRIPT }}
+          bash ${{ env.VERIFY_PLATFORM_SCRIPT }}
+
       - name: 'Build and Test: Warehouse'
         run: mvn -B clean package
         working-directory: ${{ env.WAREHOUSE_PROJECT }}
@@ -40,3 +48,7 @@ jobs:
       - name: 'Build and Test: Order'
         run: mvn -B clean package
         working-directory: ${{ env.ORDER_PROJECT }}
+
+      - name: 'Build and Test: Shopping Cart'
+        run: mvn -B clean package
+        working-directory: ${{ env.SHOPPING_CART_PROJECT }}
