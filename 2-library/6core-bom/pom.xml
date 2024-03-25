@@ -85,7 +85,9 @@
                             <includes>
                                 <include>**/pom.xml</include>
                             </includes>
-                            <sortPom/>
+                            <sortPom>
+                                <lineSeparator>\r\n</lineSeparator>
+                            </sortPom>
                         </pom>
                     </configuration>
                     <executions>
