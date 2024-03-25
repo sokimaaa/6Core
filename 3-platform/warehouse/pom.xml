@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-<modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>com.6core.lib</groupId>
@@ -8,58 +8,58 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-    <groupId>com.6core.platform</groupId>
-    <artifactId>warehouse</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+  <groupId>com.6core.platform</groupId>
+  <artifactId>warehouse</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
-    <properties>
-        <java.version>17</java.version>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
+  <modules>
+    <module>boot</module>
+    <module>infra</module>
+    <module>app</module>
+    <module>domain</module>
+    <module>spec</module>
+  </modules>
 
-    <modules>
-        <module>boot</module>
-        <module>infra</module>
-        <module>app</module>
-        <module>domain</module>
-        <module>spec</module>
-    </modules>
+  <properties>
+    <java.version>17</java.version>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
 
-    <build>
-        <plugins>
-            <!-- Конфігурація плагіна для Spotless -->
-            <plugin>
-                <groupId>com.diffplug.spotless</groupId>
-                <artifactId>spotless-maven-plugin</artifactId>
-                <version>${spotless.check.plugin.version}</version>
-                <configuration>
-                    <java>
-                        <includes>
-                            <include>src/main/java/**/*.java</include>
-                            <include>src/test/java/**/*.java</include>
-                        </includes>
-                        <googleJavaFormat/>
-                        <formatAnnotations/>
-                    </java>
-                    <pom>
-                        <includes>
-                            <include>**/pom.xml</include>
-                        </includes>
-                        <sortPom/>
-                    </pom>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-        <!-- Інші конфігураційні елементи, якщо необхідно -->
-    </build>
+  <build>
+    <plugins>
+      <!-- Конфігурація плагіна для Spotless -->
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>${spotless.check.plugin.version}</version>
+        <configuration>
+          <java>
+            <includes>
+              <include>src/main/java/**/*.java</include>
+              <include>src/test/java/**/*.java</include>
+            </includes>
+            <googleJavaFormat></googleJavaFormat>
+            <formatAnnotations></formatAnnotations>
+          </java>
+          <pom>
+            <includes>
+              <include>**/pom.xml</include>
+            </includes>
+            <sortPom></sortPom>
+          </pom>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    <!-- Інші конфігураційні елементи, якщо необхідно -->
+  </build>
 
 </project>
