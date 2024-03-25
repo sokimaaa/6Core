@@ -1,7 +1,7 @@
 package com._6core.platform.warehousespec.rest.v1;
 
-import com._6core.platform.warehousespec.rest.v1.dto.product.ProductCartResponse;
 import com._6core.platform.warehousespec.rest.v1.dto.product.ProductDetailsResponse;
+import com._6core.platform.warehousespec.rest.v1.dto.product.ProductSearchResponseCard;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -42,7 +42,7 @@ public interface ProductGetApi {
             content = {
               @Content(
                   mediaType = "application/json",
-                  schema = @Schema(implementation = ProductCartResponse.class))
+                  schema = @Schema(implementation = ProductSearchResponseCard.class))
             }),
         @ApiResponse(
             responseCode = "400",
@@ -53,20 +53,20 @@ public interface ProductGetApi {
         @ApiResponse(responseCode = "404", description = "Products not found"),
         @ApiResponse(responseCode = "500", description = "Unexpected error")
       })
-  default Flux<ResponseEntity<ProductCartResponse>> getProductsByCreteria(
+  default Flux<ResponseEntity<ProductSearchResponseCard>> getProductsByCreteria(
       @RequestParam(required = false) Map<String, Set<String>> filterCreteria) {
-    ProductCartResponse mockCartResponse =
-        new ProductCartResponse("-1", "-1", "-1", BigInteger.valueOf(-1L), false);
+    ProductSearchResponseCard mockCartResponse =
+        new ProductSearchResponseCard("-1", "-1", "-1", BigInteger.valueOf(-1L), false);
     return Flux.just(ResponseEntity.ok().body(mockCartResponse));
   }
 
   /**
-   * Exploring exact product with all details GET /products/{productId}/details
+   * Exploring exact product with all details GET /products/{productId}
    *
    * @param productId (required)
    * @return OK (status code 200)
    */
-  @GetMapping(value = "/products/{productId}/details", produces = "application/json")
+  @GetMapping(value = "/products/{productId}", produces = "application/json")
   @Operation(
       summary = "Get product details",
       description = "Get details of a specific product by ID")
