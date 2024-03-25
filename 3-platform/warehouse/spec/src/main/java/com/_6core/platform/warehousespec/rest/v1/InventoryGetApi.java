@@ -1,6 +1,6 @@
-package com._6core.platform.warehouse.rest.v1;
+package com._6core.platform.warehousespec.rest.v1;
 
-import com._6core.platform.warehouse.rest.v1.inventory.InventoryResponse;
+import com._6core.platform.warehousespec.rest.v1.inventory.InventoryResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
