@@ -43,9 +43,8 @@ public interface ProductModificationApi {
       })
   @PatchMapping("/products/{productId}/description")
   default Mono<ResponseEntity<ProductDescriptionResponse>> updateProductDescription(
-          @Parameter(name = "productId", required = true) @PathVariable("productId")
-                String productId,
-          ProductDescriptionRequest request) {
+      @Parameter(name = "productId", required = true) @PathVariable("productId") String productId,
+      ProductDescriptionRequest request) {
 
     ProductDescriptionResponse response = new ProductDescriptionResponse("-1", "updated");
     return Mono.just(ResponseEntity.ok(response));
@@ -70,9 +69,8 @@ public interface ProductModificationApi {
       })
   @PatchMapping("/products/{productId}/name")
   default Mono<ResponseEntity<ProductNameResponse>> updateProductName(
-          @Parameter(name = "productId", required = true) @PathVariable("productId")
-                String productId,
-          ProductNameRequest request) {
+      @Parameter(name = "productId", required = true) @PathVariable("productId") String productId,
+      ProductNameRequest request) {
     ProductNameResponse response = new ProductNameResponse("-1", "updated");
     return Mono.just(ResponseEntity.ok(response));
   }
@@ -96,9 +94,8 @@ public interface ProductModificationApi {
       })
   @PatchMapping("/products/{productId}/price")
   default Mono<ResponseEntity<ProductPriceResponse>> updateProductPrice(
-          @Parameter(name = "productId", required = true) @PathVariable("productId")
-              String productId,
-          ProductPriceRequest request) {
+      @Parameter(name = "productId", required = true) @PathVariable("productId") String productId,
+      ProductPriceRequest request) {
     ProductPriceResponse response = new ProductPriceResponse("-1", new BigDecimal("123.45"));
     return Mono.just(ResponseEntity.ok(response));
   }
