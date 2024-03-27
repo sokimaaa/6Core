@@ -2,8 +2,7 @@ package com._6core.platform.warehouse.boot;
 
 import com._6core.lib.java.MicroserviceLogger;
 
-public class TestLogger {
-    private static final MicroserviceLogger logger = new MicroserviceLogger();
+public class TestLogger implements MicroserviceLogger{
 
     public static void main(String[] args) {
         logger.debug("This is a DEBUG message");

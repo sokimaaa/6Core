@@ -3,23 +3,22 @@ package com._6core.lib.java;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MicroserviceLogger {
-    private static final Logger MICRO_LOGGER
-            = LoggerFactory.getLogger(MicroserviceLogger.class);
+public interface MicroserviceLogger {
 
-    public static void debug(String message) {
-        MICRO_LOGGER.debug(message);
+    Logger logger = LoggerFactory.getLogger(MicroserviceLogger.class);
+
+    default void debug(String message) {
+        logger.debug(message);
+    }
+    default void info(String message) {
+        logger.info(message);
     }
 
-    public static void info(String message) {
-        MICRO_LOGGER.info(message);
+    default void warn(String message) {
+        logger.warn(message);
     }
 
-    public static void warn(String message) {
-        MICRO_LOGGER.warn(message);
-    }
-
-    public static void error(String message) {
-        MICRO_LOGGER.error(message);
+    default void error(String message) {
+        logger.error(message);
     }
 }
